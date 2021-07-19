@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      :root.dragging input {
+          border: 2px dashed red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <a href="#">drag me…</a>
+
+    <dl style="column-count: 2">
+      <dt>a</dt>
+      <dd><input placeholder="…here!"></dd>
+
+      <div style="page-break-inside: avoid">
+        <dt>b</dt>
+        <dd><input placeholder="then type here"></dd>
+      </div>
+    </dl>
+
+    <script>
+      function dragstart() {
+          document.documentElement.classList.add('dragging')
+      }
+
+      function dragend() {
+          document.documentElement.classList.remove('dragging');
+      }
+
+      window.addEventListener('dragstart', dragstart);
+      window.addEventListener('dragend', dragend);
+    </script>
+
+  </body>
+</html>
